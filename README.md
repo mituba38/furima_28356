@@ -4,13 +4,13 @@
 | Column           | Type    | Options     |
 | ---------------- | ------- | ----------- |
 | first_name       | string  | null: false |
-| family_name      | string  | null: false |
-| kanafirst_name   | string  | null: false |
-| kanafirmily_name | string  | null: false |
+| last_name        | string  | null: false |
+| first_name_kana  | string  | null: false |
+| last_name_kana   | string  | null: false |
 | email            | string  | null: false |
 | password         | string  | null: false |
 | nickname         | string  | null: false |
-| birth            | date    | null: false |
+| birth_date       | date    | null: false |
 
 ### Association
 
