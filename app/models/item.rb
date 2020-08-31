@@ -13,7 +13,7 @@ class Item < ApplicationRecord
     validates :user
     validates :explanation
     validates :name 
-    validates :price, format: { with: /\A[a-z\d]+\z/i, message:'は半角英数字で入力してください。'}
+    validates :price, numericality: { only_integer: true,greater_than: 299, less_than: 10000000}
     validates :category
     validates :status
     validates :charge
