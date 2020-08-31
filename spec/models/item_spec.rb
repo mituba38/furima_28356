@@ -63,6 +63,11 @@ describe Item do
         @item.valid?
         expect(@item.errors.full_messages).to include('Price must be greater than 299')
       end
+      it '販売価格の範囲が¥300~¥9999999の範囲でないと出品登録できない' do
+        @item.price = '100000000000'
+        @item.valid?
+        expect(@item.errors.full_messages).to include('Price must be less than 10000000')
+      end
       it '販売価格が半角数字のみでないと出品登録できない' do
         @item.price = 'あいう'
         @item.valid?
