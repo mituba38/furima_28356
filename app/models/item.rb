@@ -5,7 +5,7 @@ class Item < ApplicationRecord
   belongs_to_active_hash :prefecture
   belongs_to_active_hash :schedule
   belongs_to_active_hash :status
-  
+
   belongs_to :user
   has_one_attached :image
 
@@ -13,13 +13,13 @@ class Item < ApplicationRecord
     validates :image
     validates :user
     validates :explanation
-    validates :name 
-    validates :price, numericality: { only_integer: true,greater_than: 299, less_than: 10000000}
+    validates :name
+    validates :price, numericality: { only_integer: true, greater_than: 299, less_than: 10_000_000 }
     validates :category
     validates :status
     validates :charge
     validates :prefecture
     validates :schedule
     validates :prefecture_id, numericality: { other_than: 0 }
-  end  
+  end
 end

@@ -1,11 +1,11 @@
 class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
-  
-  has_many :items       
+
+  has_many :items
 
   # validates :password, length: { minimum: 6, too_short: 'は最低６文字必要です' }
-  validates :password, format: { with: /\A[a-z\d]+\z/i, message:'は半角英数字で入力してください。'}
+  validates :password, format: { with: /\A[a-z\d]+\z/i, message: 'は半角英数字で入力してください。' }
   validates :nickname, presence: true
   validates :first_name, presence: true
   validates :first_name, format: { with: /\A[ぁ-んァ-ン一-龥]+\z/, message: 'は全角で入力してください。' }

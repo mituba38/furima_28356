@@ -11,7 +11,7 @@ describe Item do
         expect(@item).to be_valid
       end
     end
-    
+
     context 'アイテム出品がうまくいかないとき' do
       it '画像が無いと出品登録できない' do
         @item.image = nil
@@ -22,52 +22,52 @@ describe Item do
         @item.name = ''
         @item.valid?
         expect(@item.errors.full_messages).to include("Name can't be blank")
-      end 
+      end
       it '商品の説明が無いと出品登録できない' do
         @item.explanation = ''
         @item.valid?
         expect(@item.errors.full_messages).to include("Explanation can't be blank")
-      end 
+      end
       it 'カテゴリーの情報が無いと出品登録できない' do
         @item.category_id = ''
         @item.valid?
         expect(@item.errors.full_messages).to include("Category can't be blank")
-      end 
+      end
       it '商品の状態についての情報が無いと出品登録できない' do
         @item.status_id = ''
         @item.valid?
         expect(@item.errors.full_messages).to include("Status can't be blank")
-      end 
+      end
       it '配送料の負担についての情報が無いと出品登録できない' do
         @item.charge_id = ''
         @item.valid?
         expect(@item.errors.full_messages).to include("Charge can't be blank")
-      end 
+      end
       it '発送元の地域についての情報が無いと出品登録できない' do
         @item.prefecture_id = ''
         @item.valid?
         expect(@item.errors.full_messages).to include("Prefecture can't be blank")
-      end 
+      end
       it '発送までの日数についての情報が無いと出品登録できない' do
         @item.schedule_id = ''
         @item.valid?
         expect(@item.errors.full_messages).to include("Schedule can't be blank")
-      end 
+      end
       it '価格についての情報が無いと出品登録できない' do
         @item.price = ''
         @item.valid?
         expect(@item.errors.full_messages).to include("Price can't be blank")
-      end 
+      end
       it '販売価格の範囲が¥300~¥9999999の範囲でないと出品登録できない' do
         @item.price = '100'
         @item.valid?
-        expect(@item.errors.full_messages).to include("Price must be greater than 299")
-      end 
+        expect(@item.errors.full_messages).to include('Price must be greater than 299')
+      end
       it '販売価格が半角数字のみでないと出品登録できない' do
         @item.price = 'あいう'
         @item.valid?
-        expect(@item.errors.full_messages).to include("Price is not a number")
-      end 
+        expect(@item.errors.full_messages).to include('Price is not a number')
+      end
     end
   end
-end        
+end
