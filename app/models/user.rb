@@ -3,6 +3,7 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
   has_many :items
+  has_many :sales
 
   # validates :password, length: { minimum: 6, too_short: 'は最低６文字必要です' }
   validates :password, format: { with: /\A[a-z\d]+\z/i, message: 'は半角英数字で入力してください。' }
