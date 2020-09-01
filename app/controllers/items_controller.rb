@@ -7,6 +7,20 @@ class ItemsController < ApplicationController
     @item = Item.new
   end
 
+  def destroy
+    @item = Item.find(params[:id])
+    item.destroy
+  end
+
+  def edit
+    @item = Item.find(params[:id])
+  end
+
+  def update
+    @item = Item.find(params[:id])
+    item.update(item_params)  
+  end
+
   def show
     @item = Item.find(params[:id])
   end
