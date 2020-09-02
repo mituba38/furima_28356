@@ -1,10 +1,11 @@
 class SalesController < ApplicationController
   def index
     @item = Item.find(params[:item_id])
+    @sale = SaleAdress.new
   end  
 
   def create
-    @sale = Sale.new(price: sale_params[:price])
+    @sale = SaleAdress.new(price: sale_params[:price])
     if @sale.valid?
       pay_item
       @sale.save
@@ -16,8 +17,8 @@ class SalesController < ApplicationController
 
   private
 
-  def order_params
-    params.permit(:price, :token)
+  def sale_params
+    params.require(:sale_adress).permit(:price, :token, :user, :item, :postal_code, :prefecture_id, :city, :address, :building, :phone_number)
   end
 
   def pay_item
