@@ -1,7 +1,7 @@
 class SalesController < ApplicationController
-  before_action :set_item, only: [:index,:new,:create,:pay_item]
+  before_action :set_item, only: [:index, :new, :create, :pay_item]
   def index
-  end  
+  end
 
   def new
     @sale = SaleAdress.new
@@ -12,11 +12,11 @@ class SalesController < ApplicationController
     if sale_adress.valid?
       pay_item
       sale_adress.save
-      return redirect_to root_path
+      redirect_to root_path
     else
       render :index
     end
-  end  
+  end
 
   private
 
@@ -25,14 +25,14 @@ class SalesController < ApplicationController
   end
 
   def pay_item
-    Payjp.api_key = ENV["PAYJP_SECRET_KEY"]
+    Payjp.api_key = ENV['PAYJP_SECRET_KEY']
     Payjp::Charge.create(
-      amount: @item.price,  
-      card: sale_params[:token],    
-      currency:'jpy'                 
+      amount: @item.price,
+      card: sale_params[:token],
+      currency: 'jpy'
     )
   end
-   
+
   def set_item
     @item = Item.find(params[:item_id])
   end

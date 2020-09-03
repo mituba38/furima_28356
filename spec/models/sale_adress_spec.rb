@@ -10,7 +10,7 @@ RSpec.describe SaleAdress, type: :model do
       @sale_address = FactoryBot.build(:sale_adress, user_id: @user.id, item_id: @item.id)
       sleep(1)
     end
-    
+
     it 'すべての値が正しく入力されていれば保存できること' do
       expect(@sale_address).to be_valid
     end
@@ -22,7 +22,7 @@ RSpec.describe SaleAdress, type: :model do
     it '郵便番号にハイフンが無いと保存できないこと' do
       @sale_address.postal_code = '1234567'
       @sale_address.valid?
-      expect(@sale_address.errors.full_messages).to include("Postal code はハイフンを含めて入力して下さい")
+      expect(@sale_address.errors.full_messages).to include('Postal code はハイフンを含めて入力して下さい')
     end
     it '都道府県が空だと保存できないこと' do
       @sale_address.prefecture_id = ''
@@ -47,7 +47,7 @@ RSpec.describe SaleAdress, type: :model do
     it '電話番号が12桁以上だと保存できないこと' do
       @sale_address.phone_number = '09012345678901'
       @sale_address.valid?
-      expect(@sale_address.errors.full_messages).to include("Phone number は11桁以内で入力して下さい")
+      expect(@sale_address.errors.full_messages).to include('Phone number は11桁以内で入力して下さい')
     end
   end
 end
