@@ -55,11 +55,11 @@
 | ------------- | ---------- | ----------------------------- |
 | sale          | references | null: false,foreign_key: true |
 | postal_code   | string     | null: false                   |
-| prefectures   | integer    | null: false                   |
+| prefecture    | integer    | null: false                   |
 | city          | string     | null: false                   |
 | address       | string     | null: false                   |
-| building_name | string     |                               |
-| tel           | string     | null: false                   |
+| building      | string     |                               |
+| phone_number  | string     | null: false                   |
 
 ### Association
 
