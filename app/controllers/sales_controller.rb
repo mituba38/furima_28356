@@ -1,5 +1,5 @@
 class SalesController < ApplicationController
-  before_action :set_item, only: [:index, :new, :create, :pay_item]
+  before_action :set_item, only: [:index, :create, :pay_item]
   def index
     return redirect_to root_path if current_user == @item.user
     return redirect_to root_path if @item.sale.present?
