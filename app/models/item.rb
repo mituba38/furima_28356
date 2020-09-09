@@ -8,7 +8,7 @@ class Item < ApplicationRecord
 
   belongs_to :user
   has_one_attached :image
-  has_one :sale
+  has_one :sale, dependent: :destroy
 
   with_options presence: true do
     validates :image
